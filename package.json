@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --host 0.0.0.0",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -25,6 +25,7 @@
     "bootstrap-icons": "^1.11.3",
     "express": "^4.18.2",
     "rxjs": "~7.8.0",
+    "sass": "^1.77.2",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
   },
