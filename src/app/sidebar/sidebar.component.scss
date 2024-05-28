@@ -1,19 +1,27 @@
 div.bg-light {
-  height: 100vh;
+	height: 100vh;
 }
+
 ul.navbar-nav {
-  width: 100%;
+	width: 100%;
 }
+
 .navbar-nav .nav-link.active {
-  background: rgb(45, 127, 185);
-  color: #fff;
+	background: rgb(45, 127, 185);
+	color: #fff;
 }
+
 @media (max-width: 750px) {
-  .container-fluid {
-    height: auto;
-  }
+	.container-fluid {
+		height: auto;
+	}
 
 }
+
 .d-show {
-  display: block;
+	display: block;
+}
+
+p.ml-6 {
+	margin-left: 25px;
 }

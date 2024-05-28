@@ -5,3 +5,29 @@
 .px-6 {
 	padding: 0 60px;
 }
+
+.borderless-td {
+	border: none !important;
+}
+
+.equal-width td,
+.equal-width th {
+	width: 33%;
+	/* Set a fixed width for each cell */
+}
+
+.table-container {
+	max-height: 550px;
+	/* Adjust the maximum height as needed */
+	overflow-y: auto;
+}
+
+.card-title {
+	text-overflow: ellipsis;
+	// white-space: nowrap;
+	overflow: hidden;
+	word-break: break-all;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+}

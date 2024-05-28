@@ -1,1 +1,62 @@
-<p>posts works!</p>
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">My App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Posts</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <p class="h3 mt-5">Posts</p>
+  <div class="container mt-5">
+    <div class="row mb-3">
+      <div class="col-md-4">
+        <input type="text" class="form-control" placeholder="Search by title" [(ngModel)]="searchQuery" (input)="filterPosts()">
+      </div>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th (click)="setSortField('id')" [class.sorted]="sortField === 'id'">
+          #
+          <span *ngIf="sortField === 'id' && sortDirection === 'asc'">▲</span>
+          <span *ngIf="sortField === 'id' && sortDirection === 'desc'">▼</span>
+        </th>
+        <th (click)="setSortField('title')" [class.sorted]="sortField === 'title'">
+          Title
+          <span *ngIf="sortField === 'title' && sortDirection === 'asc'">▲</span>
+          <span *ngIf="sortField === 'title' && sortDirection === 'desc'">▼</span>
+        </th>
+        <th (click)="setSortField('body')" [class.sorted]="sortField === 'body'">
+          Body
+          <span *ngIf="sortField === 'body' && sortDirection === 'asc'">▲</span>
+          <span *ngIf="sortField === 'body' && sortDirection === 'desc'">▼</span>
+        </th>
+        <th (click)="setSortField('userId')" [class.sorted]="sortField === 'userId'">
+          User ID
+          <span *ngIf="sortField === 'userId' && sortDirection === 'asc'">▲</span>
+          <span *ngIf="sortField === 'userId' && sortDirection === 'desc'">▼</span>
+        </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let post of filteredPosts | paginate: { itemsPerPage: pageSize, currentPage: page }" (click)="selectPost(post)">
+          <td>{{ post.id }}</td>
+          <td>{{ post.title }}</td>
+          <td>{{ post.body }}</td>
+          <td>{{ post.userId }}</td>
+        </tr>
+      </tbody>
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </table>
+  </div>
+</div>
